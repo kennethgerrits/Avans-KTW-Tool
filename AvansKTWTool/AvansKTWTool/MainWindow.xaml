@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvansKTWTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Avans KTW Tool by Kenneth Gerrits" Height="550" Width="950">
+
+    <!-- Define Grid -->
+    <Grid Background="#e8e6e6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Start column 0 -->
+        <Rectangle Grid.Column="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#c8152f"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Border Padding="20" Grid.Column="0">
+            <StackPanel>
+                <Image Width="150" Source="Images/avans_logo.png"/>
+            </StackPanel>
+        </Border>
+        <!-- End column 0 -->
+
+
+        <!-- Start column 1 -->
+
+        <!-- End column 1 -->
+
+
     </Grid>
 </Window>
