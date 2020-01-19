@@ -43,7 +43,6 @@
         </Border>
         <!-- End column 0 -->
 
-
         <!-- Start column 1 -->
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
             <TextBlock Text="Information from all canidates." 
@@ -70,6 +69,5 @@
             </Border>
         </StackPanel>
         <!-- End column 1 -->
-
     </Grid>
 </Window>
