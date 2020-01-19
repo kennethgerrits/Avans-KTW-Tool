@@ -40,7 +40,7 @@
 
             <Border Padding="20"></Border>
 
-            <TextBlock Text="Informatie de ingeplande kanidaten." HorizontalAlignment="Center" Padding="5"/>
+            <TextBlock Text="Informatie van de ingeplande kanidaten." HorizontalAlignment="Center" Padding="5"/>
             <TextBox Width="400" Height="100"/>
 
             <Border Padding="30">
