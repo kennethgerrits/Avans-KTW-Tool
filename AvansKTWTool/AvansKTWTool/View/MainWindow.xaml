@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvansKTWTool"
         mc:Ignorable="d"
-        Title="Avans KTW Tool by Kenneth Gerrits" Height="550" Width="950">
+        Title="tool" 
+        Height="550" 
+        Width="950"
+        DataContext="{Binding Source={StaticResource Locator}, Path=GetCalculateNotRegistered}">
 
     <!-- Define Grid -->
     <Grid Background="#e8e6e6">
@@ -22,12 +25,13 @@
         </Rectangle>
 
         <Border Padding="5" Grid.Column="0">
-        <TextBlock  VerticalAlignment="Bottom" HorizontalAlignment="Center"  Foreground="White" Text="www.github.com/kennethgerrits"/>
+            <TextBlock  VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+                        Foreground="White" Text="www.github.com/kennethgerrits"/>
         </Border>
 
         <Border Padding="20" Grid.Column="0">
             <StackPanel>
-                <Image Width="150" Source="Images/avans_logo.png"/>
+                <Image Width="150" Source="../Images/avans_logo.png"/>
             </StackPanel>
         </Border>
         <!-- End column 0 -->
@@ -35,16 +39,24 @@
 
         <!-- Start column 1 -->
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <TextBlock Text="Informatie van alle kanidaten." HorizontalAlignment="Center" Padding="5"/>
-            <TextBox Width="400" Height="100"/>
+            <TextBlock Text="Informatie van alle kanidaten." 
+                       HorizontalAlignment="Center" Padding="5"/>
+
+            <TextBox Text="{Binding AllKanidatesInformation}" 
+                     AcceptsReturn="True" 
+                     Width="400" Height="100"/>
 
             <Border Padding="20"></Border>
 
-            <TextBlock Text="Informatie van de ingeplande kanidaten." HorizontalAlignment="Center" Padding="5"/>
-            <TextBox Width="400" Height="100"/>
+            <TextBlock Text="Informatie van de ingeplande kanidaten."
+                       HorizontalAlignment="Center" Padding="5"/>
+
+            <TextBox Text="{Binding ChosenKanidatesInformation}" 
+                     AcceptsReturn="True"
+                     Width="400" Height="100"/>
 
             <Border Padding="30">
-                <Button Content="Convert" Width="100" Height="30" Background="#c8152f" Foreground="White" />
+                <Button Command="{Binding CalculateNotRegisteredCommand}" Content="Convert" Width="100" Height="30" Background="#c8152f" Foreground="White" />
             </Border>
         </StackPanel>
         <!-- End column 1 -->
