@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 
 namespace AvansKTWTool.ViewModel
 {
@@ -44,6 +48,35 @@ namespace AvansKTWTool.ViewModel
                 .ToList();
 
             _leftoverKanidatesList = _allKanidatesList.Except(_chosenKanidatesList).ToList();
+
+
+            string fileName = @"D:\Kanidates.txt"; 
+
+            try
+            {
+                // Check if file already exists. If yes, delete it.     
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+
+                // Create a new file     
+                using (StreamWriter sw = File.CreateText(fileName))
+                {
+                    sw.WriteLine("New file created: {0}", DateTime.Now.ToString(CultureInfo.CurrentCulture));
+
+                    foreach (var name in _leftoverKanidatesList)
+                    {
+                        sw.WriteLine(name);
+                    }
+
+                    sw.WriteLine("Application made by: {0}", "Kenneth Gerrits: github.com/kennethgerrits");
+                }
+                MessageBox.Show($"Exported file succesfully to: {fileName} ", "Here you go!", MessageBoxButton.OK);
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.ToString());
+            }
+
         }
     }
 }
