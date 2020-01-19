@@ -20,6 +20,7 @@ namespace AvansKTWTool.ViewModel
         //private fields
         private List<string> _allKanidatesList;
         private List<string> _chosenKanidatesList;
+        private List<string> _leftoverKanidatesList;
         
         //constructor
         public CalculateNotRegistered()
@@ -30,6 +31,7 @@ namespace AvansKTWTool.ViewModel
             //Init
             _allKanidatesList = new List<string>();
             _chosenKanidatesList = new List<string>();
+            _leftoverKanidatesList = new List<string>();
         }
 
         private void CalculateNotRegisteredKanidates()
@@ -41,7 +43,7 @@ namespace AvansKTWTool.ViewModel
             List<string> _chosenKanidatesList = ChosenKanidatesInformation.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-
+            _leftoverKanidatesList = _allKanidatesList.Except(_chosenKanidatesList).ToList();
         }
     }
 }
