@@ -49,26 +49,26 @@ namespace AvansKTWTool.ViewModel
 
             _leftoverKanidatesList = _allKanidatesList.Except(_chosenKanidatesList).ToList();
 
-
             string fileName = @"D:\Kanidates.txt"; 
 
             try
             {
-                // Check if file already exists. If yes, delete it.     
                 if (File.Exists(fileName))
                     File.Delete(fileName);
 
-                // Create a new file     
                 using (StreamWriter sw = File.CreateText(fileName))
                 {
-                    sw.WriteLine("New file created: {0}", DateTime.Now.ToString(CultureInfo.CurrentCulture));
+                    sw.WriteLine("The following kanidates are not registered:");
+                    sw.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
 
                     foreach (var name in _leftoverKanidatesList)
                     {
                         sw.WriteLine(name);
                     }
 
-                    sw.WriteLine("Application made by: {0}", "Kenneth Gerrits: github.com/kennethgerrits");
+                    sw.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                    sw.WriteLine("Export date: {0}", DateTime.Now.ToString(CultureInfo.CurrentCulture));
+                    sw.WriteLine("Application made by {0}", "Kenneth Gerrits: github.com/kennethgerrits");
                 }
                 MessageBox.Show($"Exported file succesfully to: {fileName} ", "Here you go!", MessageBoxButton.OK);
             }

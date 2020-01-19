@@ -39,7 +39,7 @@
 
         <!-- Start column 1 -->
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <TextBlock Text="Informatie van alle kanidaten." 
+            <TextBlock Text="Information from all canidates." 
                        HorizontalAlignment="Center" Padding="5"/>
 
             <TextBox Text="{Binding AllKanidatesInformation}" 
@@ -48,7 +48,7 @@
 
             <Border Padding="20"></Border>
 
-            <TextBlock Text="Informatie van de ingeplande kanidaten."
+            <TextBlock Text="Information from the scheduled canidates."
                        HorizontalAlignment="Center" Padding="5"/>
 
             <TextBox Text="{Binding ChosenKanidatesInformation}" 
@@ -56,7 +56,9 @@
                      Width="400" Height="100"/>
 
             <Border Padding="30">
-                <Button Command="{Binding CalculateNotRegisteredCommand}" Content="Convert" Width="100" Height="30" Background="#c8152f" Foreground="White" />
+                <Button Command="{Binding CalculateNotRegisteredCommand}" 
+                        Content="Calculate unscheduled kanidates" 
+                        Width="200" Height="30" Background="#c8152f" Foreground="White" />
             </Border>
         </StackPanel>
         <!-- End column 1 -->
