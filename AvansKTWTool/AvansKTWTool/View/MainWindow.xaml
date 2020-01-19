@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AvansKTWTool"
         mc:Ignorable="d"
-        Title="tool" 
+        Title="KTW-Tool by Kenneth Gerrits" 
         Height="550" 
         Width="950"
         DataContext="{Binding Source={StaticResource Locator}, Path=GetCalculateNotRegistered}">
@@ -32,6 +32,13 @@
         <Border Padding="20" Grid.Column="0">
             <StackPanel>
                 <Image Width="150" Source="../Images/avans_logo.png"/>
+
+                <Border Padding="0 30">
+                    <Button Content="Calculate unscheduled kanidates" 
+                            Width="200" Height="30" 
+                            Background="#c8152f" Foreground="White" BorderThickness="0" />
+                </Border>
+
             </StackPanel>
         </Border>
         <!-- End column 0 -->
@@ -58,7 +65,8 @@
             <Border Padding="30">
                 <Button Command="{Binding CalculateNotRegisteredCommand}" 
                         Content="Calculate unscheduled kanidates" 
-                        Width="200" Height="30" Background="#c8152f" Foreground="White" />
+                        Width="200" Height="30" 
+                        Background="#c8152f" Foreground="White" BorderThickness="0"/>
             </Border>
         </StackPanel>
         <!-- End column 1 -->

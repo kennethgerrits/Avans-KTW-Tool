@@ -15,8 +15,8 @@ namespace AvansKTWTool.ViewModel
     public class CalculateNotRegistered
     {
         //properties
-        public string AllKanidatesInformation { get; set; }
-        public string ChosenKanidatesInformation { get; set; }
+        public string AllKanidatesInformation { get; set; } = "";
+        public string ChosenKanidatesInformation { get; set; } = "";
 
         //commands
         public ICommand CalculateNotRegisteredCommand { get; set; }
@@ -29,17 +29,19 @@ namespace AvansKTWTool.ViewModel
         //constructor
         public CalculateNotRegistered()
         {
-            //RelayCommands
-            CalculateNotRegisteredCommand = new RelayCommand(CalculateNotRegisteredKanidates);
-
             //Init
             _allKanidatesList = new List<string>();
             _chosenKanidatesList = new List<string>();
             _leftoverKanidatesList = new List<string>();
+
+            //RelayCommands
+            CalculateNotRegisteredCommand = new RelayCommand(CalculateNotRegisteredKanidates);
+
         }
 
         private void CalculateNotRegisteredKanidates()
         {
+            if (AllKanidatesInformation.Equals("") || ChosenKanidatesInformation.Equals("")) return;
 
             List<string> _allKanidatesList = AllKanidatesInformation.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();   
